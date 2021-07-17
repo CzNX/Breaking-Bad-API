@@ -3,7 +3,7 @@ import './Header.css'
 import logo from '../../img/logo.png'
 import axios from 'axios';
 
-
+// function to  map selected list
 const mapper = (mapme) => {
     return (
         mapme.map(q => {
@@ -17,7 +17,7 @@ const mapper = (mapme) => {
         }))
 }
 
-
+// main function
 const Header = ({ input, setinput }) => {
 
     const [quotelist, setquotelist] = useState([])
@@ -30,7 +30,7 @@ const Header = ({ input, setinput }) => {
 
 
 
-
+    // button press quote shuffler
     const handleqQuote = async (e) => {
         e.preventDefault();
         const getquote = async () => {
@@ -50,7 +50,7 @@ const Header = ({ input, setinput }) => {
         getquote();
     }
 
-
+    // one time random quote generator
     useEffect(() => {
         const quotelistmap = async () => {
 
