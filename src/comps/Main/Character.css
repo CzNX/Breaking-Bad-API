@@ -1,0 +1,107 @@
+.flip-box {
+  background-color: transparent;
+  height: 300px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-box-front img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  word-spacing: 5px;
+  cursor: pointer;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+/* .flip-box-front {
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
+  cursor: pointer;
+} */
+
+/* Style the back side */
+.flip-box-back {
+  background-color: rgb(38, 42, 43);
+  color: rgb(232, 230, 227);
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.flip-box-back .name {
+  margin: 20px auto;
+
+  font-size: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+.flip-box-back .name:after {
+  position: absolute;
+  content: "";
+  border-bottom: 1px solid rgb(23, 24, 24);
+  width: 90%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  left: 50%;
+}
+
+ul {
+  list-style-type: none;
+  line-height: 28px;
+  text-align: start;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+ul li:last-child {
+  line-height: 19px;
+}
+
+/* media queries */
+
+@media (max-width: 900px) {
+  .flip-box-back .name {
+    font-size: 20px;
+  }
+  ul {
+    line-height: 22px;
+    text-align: center;
+    padding-left: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .flip-box-front img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+  }
+}

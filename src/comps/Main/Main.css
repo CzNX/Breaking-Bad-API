@@ -1,0 +1,25 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 80%;
+  margin: 50px auto;
+  gap: 10px;
+}
+
+.spin {
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 800px) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
